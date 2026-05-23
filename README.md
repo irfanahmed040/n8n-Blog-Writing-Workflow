@@ -1,4 +1,4 @@
-# Tericsoft SEO Blog Agent
+# SEO Blog Agent
 
 An end-to-end automated SEO content generation system built with n8n. Takes a keyword and topic as input and outputs a fully researched, strategically structured, and published SEO blog post — with human-in-the-loop validation at every key stage.
 
@@ -6,7 +6,7 @@ An end-to-end automated SEO content generation system built with n8n. Takes a ke
 
 ## Overview
 
-The SEO Blog Agent automates the entire content production pipeline: from keyword research and competitor analysis, through AI-powered content planning, to final blog generation and publishing. It integrates DataForSEO APIs, multiple LLMs, Google Sheets, GitHub Gists, and Notion into a single coherent workflow.
+This project automates the entire content production pipeline: from keyword research and competitor analysis, through AI-powered content planning, to final blog generation and publishing. It integrates DataForSEO APIs, multiple LLMs, Google Sheets, GitHub Gists, and Notion into a single coherent workflow.
 
 ```
 User Input → SERP Analysis → Competitor Keyword Extraction → Keyword Enrichment
@@ -24,7 +24,7 @@ User Input → SERP Analysis → Competitor Keyword Extraction → Keyword Enric
 - **Multi-stage keyword research** — KFK expansion, keyword suggestions, difficulty scoring, intent classification, and trend analysis
 - **AI-driven keyword selection** — GPT-4.1 mini selects 10–15 H2-ready keywords with strategic justification
 - **SEO checklist generation** — structured content plan with keyword hierarchy, TOC, CTAs, and tone guidelines
-- **Human-in-the-loop validation** — user can review and edit both the checklist and the blog before publishing
+- **Human-in-the-loop validation** — review and edit both the checklist and the blog before publishing
 - **Full blog generation** — 1500–1700 word, SEO-structured blog written by GPT-4.1
 - **Dual publishing** — final content published as a public GitHub Gist and a Notion page
 
@@ -97,10 +97,10 @@ GPT-4.1 generates a structured SEO blog checklist covering:
 - Blog objectives, tone, and voice
 - Industry context, use cases, and CTAs
 
-The checklist is sent to the user for review. The user can request edits (routes back to Edit Mode) or approve it. Approved checklists are published as a GitHub Gist and saved to Notion.
+The checklist is sent to the user for review. Edits can be requested (routes back to Edit Mode) or it can be approved as-is. Approved checklists are published as a GitHub Gist and saved to Notion.
 
 ### 9. Blog Generation & Publishing
-GPT-4.1 writes a 1500–1700 word SEO blog based on the approved checklist. The user reviews the draft and can request modifications in a loop until satisfied. Final blog is:
+GPT-4.1 writes a 1500–1700 word SEO blog based on the approved checklist. The draft can be modified in a loop until satisfied. Final blog is:
 - Published as a public GitHub Gist (Markdown)
 - Saved to a Notion page with access link
 
@@ -177,23 +177,17 @@ Intent: 80% informational, 20% commercial
 
 ```
 /
-├── workflow.json          # n8n workflow export
+├── workflow.json        # n8n workflow export
 ├── README.md
 └── docs/
-    └── TERICSOFT_SEO_BLOG_AGENT_REPORT.pdf   # Full system documentation
+    └── system-report.pdf   # Full system documentation
 ```
 
 ---
 
 ## Key Design Decisions
 
-- **Google Sheets as the data backbone** — acts as a shared, inspectable store across all stages, making the pipeline debuggable and auditable without a separate database.
+- **Google Sheets as the data backbone** — acts as a shared, inspectable store across all stages, making the pipeline debuggable without a separate database.
 - **Multi-model strategy** — fast/cheap models (LLaMA 3.1 8B, GPT-4.1 mini) handle extraction and filtering; GPT-4.1 handles strategic and generative tasks.
-- **Human-in-the-loop at two checkpoints** — checklist approval and blog approval ensure the output stays aligned with brand voice and strategy despite being AI-generated.
-- **Modular node architecture** — each stage (SERP, competitor, keyword, selection, content) is self-contained and can be modified or extended independently.
-
----
-
-## Built By
-
-Developed for **[Tericsoft](https://tericsoft.com)** — AI and software development company.
+- **Human-in-the-loop at two checkpoints** — checklist approval and blog approval keep the output aligned with intent despite being fully AI-generated.
+- **Modular node architecture** — each stage (SERP, competitor, keyword, selection, content) is self-contained and can be extended independently.
