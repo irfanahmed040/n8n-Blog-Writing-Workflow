@@ -6,7 +6,7 @@ An end-to-end automated SEO content generation system built with n8n. Takes a ke
 
 ## Overview
 
-This project automates the entire content production pipeline: from keyword research and competitor analysis, through AI-powered content planning, to final blog generation and publishing. It integrates DataForSEO APIs, multiple LLMs, Google Sheets, GitHub Gists, and Notion into a single coherent workflow.
+This project automates the entire content production pipeline: from keyword research and competitor analysis, through AI-powered content planning, to final blog generation and publishing. It integrates DataForSEO APIs, multiple LLMs, Google Sheets, GitHub Gists, and Notion (https://fanatical-fog-322.notion.site/SEO-Automation-2f611c48ddd7807393a1d2d872b47264?pvs=74) into a single coherent workflow.
 
 ```
 User Input → SERP Analysis → Competitor Keyword Extraction → Keyword Enrichment
